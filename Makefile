@@ -1,26 +1,25 @@
 .PHONY: install run debug clean lint lint-strict
 
-PYTHON = python3
-MAIN_SCRIPT = src/main.py
-PACKAGE_MANAGER = uv
+ARGS ?=
 
 install:
-	$(PACKAGE_MANAGER) install -r requirements.txt
+	uv sync
 
 run:
-	$(PYTHON) $(MAIN_SCRIPT)
+	uv run python -m src.main
 
 debug:
-	$(PYTHON) -m pdb $(MAIN_SCRIPT)
+	uv run python -m pdb -m src $(ARGS)
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
-	rm -rf .mypy_cache .pytest_cache .ruff_cache
+	find . -type d -name ".mypy_cache" -exec rm -rf {} +
+	find . -type f -name "*.pyc" -delete
 
 lint:
-	flake8 .
-	mypy . --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs
+	uv run flake8 src
+	uv run mypy src --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs
 
 lint-strict:
-	flake8 .
-	mypy . --strict
+	uv run flake8 src
+	uv run mypy src --strict
