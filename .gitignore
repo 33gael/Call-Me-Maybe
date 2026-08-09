@@ -1,0 +1,7 @@
+.env
+.tar.gz
+.whl
+.pkl
+.h5
+.python-version
+.venv
