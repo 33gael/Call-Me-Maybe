@@ -6,7 +6,7 @@ install:
 	uv sync
 
 run:
-	uv run python -m src.main
+	uv run python -m src $(ARGS)
 
 debug:
 	uv run python -m pdb -m src $(ARGS)
