@@ -1,5 +1,3 @@
-def ft():
-    print("Hello from call-me-maybe!")
+from src.main import ft
 
-if __name__ == "__main__":
-    ft()
+ft()
