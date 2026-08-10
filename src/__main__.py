@@ -1,3 +1,3 @@
-from src.main import ft
+from explore import printLoading
 
-ft()
+printLoading()
