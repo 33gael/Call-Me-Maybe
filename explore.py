@@ -1,12 +1,14 @@
 from llm_sdk import Small_LLM_Model
 
-llm = Small_LLM_Model() #init model
+print("Model loading")
+llm = Small_LLM_Model()  #  init model
+print("Model ready")
 
 def ft_encode(str):
     """try using encode()"""
-    print("Model loading")
-    print("Model ready")
     res = llm.encode(str)
+    print(res)
+    res = llm.decode(res)
     print(res)
     return (res)
 
