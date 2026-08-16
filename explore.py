@@ -18,7 +18,7 @@ def ft_decode(prompt):
     encode_res = ft_encode(prompt)
     lst = encode_res.tolist()
     for res_list in lst:
-        print(lst)
+        print(res_list)
     return (res_list)
 
 
