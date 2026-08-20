@@ -16,10 +16,10 @@ def ft_encode(prompt):
 def ft_decode(prompt):
     """try using decode()"""
     encode_res = ft_encode(prompt)
-    lst = encode_res.tolist()
-    for res_list in lst:
-        print(res_list)
-    return (res_list)
+    integers = encode_res[0].tolist()
+    for integer in integers:
+        print('"' + llm.decode(integer) + '"')
+    return (integer)
 
 
 if __name__ == "__main__":
