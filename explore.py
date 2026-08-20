@@ -6,7 +6,7 @@
 #    By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/20 12:01:30 by gaeducas          #+#    #+#              #
-#    Updated: 2026/08/20 14:50:03 by gaeducas         ###   ########.fr        #
+#    Updated: 2026/08/20 14:52:45 by gaeducas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ def ft_decode(prompt):
     encode_res = ft_encode(prompt)
     integers = encode_res[0].tolist()
     for integer in integers:
-        print('"' + llm.decode(integer) + '"')
+        print('"' + llm.decode([integer]) + '"')
     return (integer)
 
 
