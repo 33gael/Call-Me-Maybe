@@ -6,7 +6,7 @@
 #    By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/20 12:01:30 by gaeducas          #+#    #+#              #
-#    Updated: 2026/08/20 15:03:41 by gaeducas         ###   ########.fr        #
+#    Updated: 2026/08/21 19:34:01 by gaeducas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,12 @@ def vocab_file() -> str:
     file = llm.get_path_to_vocab_file()
     with open(file) as f:
         loaded_file = json.load(f)
+        file_items = loaded_file.items()
         print(type(loaded_file))
         print(len(loaded_file))
+        for tuple in file_items:
+            print(tuple)
+            break
     return (file)
 
 
