@@ -6,7 +6,7 @@
 #    By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/20 12:01:30 by gaeducas          #+#    #+#              #
-#    Updated: 2026/08/21 23:39:44 by gaeducas         ###   ########.fr        #
+#    Updated: 2026/08/23 17:44:20 by gaeducas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,9 @@ def vocab_file() -> str:
         file_items = loaded_file.items()
         print(type(loaded_file))
         print(len(loaded_file))
-        for tok_pair in file_items:
-            print(tok_pair)
+        for pair_key, tok_pair in file_items:
             if tok_pair == 220:
-                print(repr(tok_pair))
+                print(repr(pair_key))
                 break
     return (file)
 
