@@ -6,7 +6,7 @@
 #    By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/20 12:01:30 by gaeducas          #+#    #+#              #
-#    Updated: 2026/08/23 17:44:20 by gaeducas         ###   ########.fr        #
+#    Updated: 2026/08/23 19:31:09 by gaeducas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,20 +33,20 @@ def ft_decode(prompt):
         print('"' + llm.decode([integer]) + '"')
     return (integer)
 
-
 def vocab_file() -> str:
     file = llm.get_path_to_vocab_file()
     with open(file) as f:
         loaded_file = json.load(f)
-        file_items = loaded_file.items()
-        print(type(loaded_file))
-        print(len(loaded_file))
-        for pair_key, tok_pair in file_items:
-            if tok_pair == 220:
-                print(repr(pair_key))
-                break
-    return (file)
-
+        print('{"' in loaded_file)
+        print('"name' in loaded_file)
+        counter = 0
+        for key in loaded_file.keys():
+            if '{' in key:
+                counter += 1
+                if counter <= 10:
+                    print(key)
+        print("total:", counter)
+    return file
 
 if __name__ == "__main__":
     prompt = "What is the sum of 2 and 3?"
